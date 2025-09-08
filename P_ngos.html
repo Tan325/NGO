@@ -37,6 +37,10 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
 }
+.nav-links {
+      display: flex;
+      gap: 20px;
+    }
 
 .nav-links a {
   color: #fff;
@@ -49,6 +53,35 @@ body {
 .nav-links a:hover {
   color: #ffe66d;
 }
+ /* Hamburger icon */
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #ff6b6b;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
 
 /* Hero Section */
 .hero {
@@ -230,16 +263,17 @@ body {
 </head>
 
 <body>
-    <!-- Navbar -->
-    <header class="navbar">
-        <h1 class="logo">🐾 PawPal</h1>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="P_report.html">Report</a>
-            <a href="P_report.html">Response</a>
-            <a href="P_ngos.html">Nearby NGOs</a>
-        </nav>
-    </header>
+     <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">🐾 PawPal</h1>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="P_report.html">Report</a>
+      <a href="P_response.html">Response</a>
+      <a href="P_ngos.html">Nearby NGOs</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
 <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-text">
@@ -389,7 +423,14 @@ body {
     <div class="footer-bottom">
         © 2024 PawPal. All rights reserved. | Emergency Helpline: +91 9876543210
     </div>
+    
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
 </body>
 
 </html>
+
 
