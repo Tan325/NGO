@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PawPal - Animal Rescue Platform</title>
     <style>
-          body {
+        /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
       margin: 0;
       font-family: Arial, sans-serif;
     }
@@ -18,6 +26,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .logo {
@@ -26,11 +35,6 @@
       color: white;
       display: flex;
       align-items: center;
-    }
-
-    .logo img {
-      height: 24px;
-      margin-right: 8px;
     }
 
     .nav-links {
@@ -49,6 +53,7 @@
       font-size: 28px;
       color: white;
       cursor: pointer;
+      user-select: none;
     }
 
     /* Mobile view */
@@ -72,50 +77,6 @@
         display: block;
       }
     }
-        /* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  line-height: 1.6;
-  background: #fafafa;
-  color: #333;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ff6b6b;
-  padding: 16px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ffe66d;
-}
-
 /* Hero Section */
 .hero {
   background: url('https://ontariospca.ca/wp-content/uploads/2022/11/pexels-ivan-babydov-7788657-scaled.jpg') no-repeat center center/cover;
@@ -290,8 +251,8 @@ body {
 </head>
 
 <body>
-   
-  <nav class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
     <div class="logo">
       <span>🐾 PawPal</span>
     </div>
@@ -303,8 +264,9 @@ body {
       <a href="P_ngos.html">Nearby NGOs</a>
     </div>
 
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="hamburger" id="hamburger">☰</div>
   </nav>
+
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -440,8 +402,16 @@ body {
     <div class="footer-bottom">
         © 2024 PawPal. All rights reserved. | Emergency Helpline: +91 9876543210
     </div>
-</body>
+     <script>
+    // ✅ Toggle script (works on mobile too)
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
 
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  </script>
+</body>
 
 </html>
 
