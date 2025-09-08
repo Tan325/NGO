@@ -57,26 +57,29 @@ body {
     }
 
     /* Mobile view */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #f86f6f;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 10px;
-      }
+   @media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #f86f6f;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
 
-      .nav-links.show {
-        display: flex;
-      }
+    /* ✅ Fix: make menu appear above hero */
+    z-index: 1000;
+  }
 
-      .hamburger {
-        display: block;
-      }
-    }
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 /* Hero Section */
 .hero {
   background: url('https://ontariospca.ca/wp-content/uploads/2022/11/pexels-ivan-babydov-7788657-scaled.jpg') no-repeat center center/cover;
@@ -414,4 +417,5 @@ body {
 </body>
 
 </html>
+
 
