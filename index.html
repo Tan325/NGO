@@ -7,42 +7,74 @@
   <title>PawPal - Animal Rescue Platform</title>
   <style>
     
-    body {
+       body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #333;
-      line-height: 1.6;
     }
 
-    /* Navbar */
+    /* Navbar styling */
     .navbar {
+      background-color: #f86f6f;
+      padding: 10px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: #f97316;
-      padding: 16px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      justify-content: space-between;
     }
 
     .logo {
-        color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
     }
 
     .nav-links a {
-        color: #fff;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .nav-links a:hover {
-      color: #ffe66d;
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
     }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #f86f6f;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+   
 
     /* Hero */
     .hero {
@@ -243,16 +275,28 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <h1 class="logo">🐾 PawPal</h1>
-    <nav class="nav-links">
-      <a href="P_home.html">Home</a>
-      <a href="P_report.html">Report</a>
-      <a href="P_response.html">Response</a>
-      <a href="P_ngos.html">Nearby NGOs</a>
-    </nav>
-  </header>
+
+  <nav class="navbar">
+    <div class="logo">
+      <span>🐾 PawPal</span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Report</a>
+      <a href="#">Response</a>
+      <a href="#">Nearby NGOs</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+
 
   <!-- Hero Section -->
   <section class="hero" id="home">
