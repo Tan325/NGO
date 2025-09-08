@@ -6,6 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PawPal - Animal Rescue Platform</title>
     <style>
+          body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      background-color: #f86f6f;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #f86f6f;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
         /* General Reset */
 * {
   margin: 0;
@@ -224,16 +290,21 @@ body {
 </head>
 
 <body>
-    <!-- Navbar -->
-    <header class="navbar">
-        <h1 class="logo">🐾 PawPal</h1>
-        <nav class="nav-links">
-            <a href="P_home.html">Home</a>
-            <a href="P_report.html">Report</a>
-            <a href="P_response.html">Response</a>
-            <a href="P_ngos.html">Nearby NGOs</a>
-        </nav>
-    </header>
+   
+  <nav class="navbar">
+    <div class="logo">
+      <span>🐾 PawPal</span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">Report</a>
+      <a href="#">Response</a>
+      <a href="#">Nearby NGOs</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -370,5 +441,6 @@ body {
         © 2024 PawPal. All rights reserved. | Emergency Helpline: +91 9876543210
     </div>
 </body>
+
 
 </html>
