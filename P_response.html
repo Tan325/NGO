@@ -39,17 +39,48 @@ body {
   font-weight: bold;
 }
 
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+  .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
 .nav-links a:hover {
   color: #ffe66d;
 }
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ff6b6b;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        z-index: 1000;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
 .hero {
   background: url('https://akm-img-a-in.tosshub.com/indiatoday/images/story/202310/cat-dog-061647727-16x9_0.png?VersionId=92IFZ7jHhN8FStL8Gn1VqXJ78.kgsPX4') no-repeat center center/cover;
   height: 70vh;
@@ -258,15 +289,19 @@ body {
 
 <body>
     <!-- Navbar -->
-    <header class="navbar">
-        <h1 class="logo">🐾 PawPal</h1>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="P_report.html">Report</a>
-            <a href="P_response.html">Response</a>
-            <a href="P_ngos.html">Nearby NGOs</a>
-        </nav>
-    </header>
+   <body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <h1 class="logo">🐾 PawPal</h1>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="P_report.html">Report</a>
+      <a href="P_response.html">Response</a>
+      <a href="P_ngos.html">Nearby NGOs</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
+
     <section class="hero" id="home">
         <div class="hero-text">
             <h2>
@@ -403,7 +438,11 @@ body {
     <div class="footer-bottom">
         © 2024 PawPal. All rights reserved. | Emergency Helpline: +91 9876543210
     </div>
+      <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
 </body>
-
 
 </html>
